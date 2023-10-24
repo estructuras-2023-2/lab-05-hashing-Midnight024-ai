@@ -72,3 +72,18 @@ int modHash(int value) {
 int randomHash(int value) {
     return rand() % TABLE_SIZE;
 }
+
+int main() {
+    printf("%d\n", modHash(52));
+    printf("%d\n", modHash(3235235));
+
+    HashTable *ht = init_table(modHash);
+
+    int x = 1234567;
+    add_value(ht, x);
+    printf("%d\n", search_value(ht, x));
+
+    free_table(ht);
+
+    return 0;
+}
